@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            overflow: auto;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh; /* 최대 높이 설정 */
+            object-fit: contain; /* 이미지 비율 유지 */
+            display: block;
+            margin: 0 auto;
+        }
+        .game-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px; /* 설명과 게임 컨테이너 간의 간격 설정 */
+        }
+        .description {
+            max-width: 400px;
+            text-align: left;
+            font-size: 1.2em;
+            border: 2px solid black; /* 검정색 외곽선 추가 */
+            padding: 20px; /* 패딩 추가 */
+            border-radius: 10px; /* 모서리 둥글게 */
+        }
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid black; /* 파란색 외곽선 추가 */
+            padding: 20px; /* 패딩 추가 */
+            border-radius: 10px; /* 모서리 둥글게 */
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 40px);
+            gap: 5px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .day {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .day:hover {
+            background-color: #e0e0e0;
+        }
+        .day.disabled {
+            background-color: #f0f0f0;
+            cursor: default;
+        }
+        #result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            transition: font-size 0.3s;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        @keyframes growShrink {
+            0% { font-size: 1.5em; }
+            50% { font-size: 2em; }
+            100% { font-size: 1.5em; }
+        }
+        .growShrink {
+            animation: growShrink 0.5s ease-in-out;
+        }
+        .highlight {
+            border: 2px solid red;
+            background-color: #ffe6e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image4-1.jpg" alt="Image 4-1">
+        <img src="image4-2.jpg" alt="Image 4-2">
+        <div class="game-container">
+            <div class="description">
+                <h2>게임 힌트</h2>
+                <p>4월 장애인의 날을 맞추는 게임입니다.</p>
+                <p style="color: #797979;">--------------------------------------------------------</p>
+                <p style="color: red; font-size: 1.1em;">"장애인에 대한 이해를 깊게 하고,</p>
+                <p style="color: red; font-size: 1.1em;">장애인의 재활 의욕을 고취하기 위한 목적"</p>
+            </div>
+            <div class="calendar-container">
+                <h2>4월</h2>
+                <div class="calendar">
+                    <div class="day disabled"></div>
+                    <div class="day disabled"></div>
+                    <div class=" day disabled"></div>
+                    <div class="day disabled"></div>
+                    <div class="day disabled"></div>
+                    <div class="day disabled"></div>
+                    <!-- 4월 1일부터 30일까지 -->
+                    <div class="day" onclick="checkDay(1)">1</div>
+                    <div class="day" onclick="checkDay(2)">2</div>
+                    <div class="day" onclick="checkDay(3)">3</div>
+                    <div class="day" onclick="checkDay(4)">4</div>
+                    <div class="day" onclick="checkDay(5)">5</div>
+                    <div class="day" onclick="checkDay(6)">6</div>
+                    <div class="day" onclick="checkDay(7)">7</div>
+                    <div class="day" onclick="checkDay(8)">8</div>
+                    <div class="day" onclick="checkDay(9)">9</div>
+                    <div class="day" onclick="checkDay(10)">10</div>
+                    <div class="day" onclick="checkDay(11)">11</div>
+                    <div class="day" onclick="checkDay(12)">12</div>
+                    <div class="day" onclick="checkDay(13)">13</div>
+                    <div class="day" onclick="checkDay(14)">14</div>
+                    <div class="day" onclick="checkDay(15)">15</div>
+                    <div class="day" onclick="checkDay(16)">16</div>
+                    <div class="day" onclick="checkDay(17)">17</div>
+                    <div class="day" onclick="checkDay(18)">18</div>
+                    <div class="day" onclick="checkDay(19)">19</div>
+                    <div class="day" onclick="checkDay(20)">20</div>
+                    <div class="day" onclick="checkDay(21)">21</div>
+                    <div class="day" onclick="checkDay(22)">22</div>
+                    <div class="day" onclick="checkDay(23)">23</div>
+                    <div class="day" onclick="checkDay(24)">24</div>
+                    <div class="day" onclick="checkDay(25)">25</div>
+                    <div class="day" onclick="checkDay(26)">26</div>
+                    <div class="day" onclick="checkDay(27)">27</div>
+                    <div class="day" onclick="checkDay(28)">28</div>
+                    <div class="day" onclick="checkDay(29)">29</div>
+                    <div class="day" onclick="checkDay(30)">30</div>
+                </div>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctDay = 20;
+
+        function checkDay(day) {
+            const result = document.getElementById('result');
+            result.classList.remove('growShrink', 'highlight'); // Remove the classes first to restart the animation
+            void result.offsetWidth; // Trigger reflow to restart animation
+            if (day === correctDay) {
+                result.textContent = '정답입니다! 페이지로 이동합니다.';
+                result.style.color = 'green';
+                result.classList.add('growShrink');
+                setTimeout(() => {
+                    window.location.href = 'page5.html'; // 정답 시 이동할 페이지
+                }, 1000); // 1초 후에 페이지 이동
+            } else if (day < correctDay) {
+                result.textContent = '업!';
+                result.style.color = 'red';
+                result.classList.add('growShrink', 'highlight');
+                result.style.fontSize = '2em';
+            } else {
+                result.textContent = '다운!';
+                result.style.color = 'red';
+                result.classList.add('growShrink', 'highlight');
+                result.style.fontSize = '2em';
+            }
+            setTimeout(() => {
+                result.style.fontSize = '1.5em';
+            }, 500); // 0.5초 후에 글씨 크기를 원래대로 돌림
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            overflow: auto;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh; /* 최대 높이 설정 */
+            object-fit: contain; /* 이미지 비율 유지 */
+            display: block;
+            margin: 0 auto;
+        }
+        button {
+            padding: 20px;
+            font-size: 2em;
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .correct {
+            background-color: #4CAF50;
+        }
+        .correct:hover {
+            background-color: #45a049;
+        }
+        .wrong {
+            background-color: #f44336;
+        }
+        .wrong:hover {
+            background-color: #e41f1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image7-1.jpg" alt="Image 7-1">
+        <img src="image7-2.jpg" alt="Image 7-2">
+        <h1>이 화장실은 장애인만 이용이 가능하다?!</h1>
+        <p>이 질문에 대한 답은 무엇일까요?</p>
+        <p>정답은 O, 틀리면 X</p>
+        <button class="correct" onclick="handleAnswer(true)">O</button>
+        <button class="wrong" onclick="handleAnswer(false)">X</button>
+    </div>
+
+    <script>
+        // 정답과 오답에 대한 링크를 설정합니다.
+        const correctLink = 'page8.html'; // 정답일 경우 이동할 페이지
+        const wrongLink = 'page9.html';   // 오답일 경우 이동할 페이지
+
+        function handleAnswer(isCorrect) {
+            if (isCorrect) {
+                window.location.href = correctLink; // 정답일 경우 이동할 페이지
+            } else {
+                window.location.href = wrongLink; // 오답일 경우 이동할 페이지
+            }
+        }
+    </script>
+</body>
+</html>
