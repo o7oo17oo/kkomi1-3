@@ -22,6 +22,7 @@
             width: 100%;
             max-width: 1200px;
             padding: 20px;
+            text-align: center; /* 컨테이너 내의 모든 내용을 가운데 정렬 */
         }
         img {
             width: 100%;
@@ -35,13 +36,31 @@
             padding: 10px 20px;
             font-size: 16px;
             margin-top: 20px;
+            display: none; /* 초기에는 버튼을 숨김 */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #007bff; /* 파란색 배경 */
+            color: white; /* 텍스트 색상을 흰색으로 변경 */
+            border: none; /* 기본 테두리 제거 */
+            border-radius: 5px; /* 버튼 모서리를 둥글게 */
+            cursor: pointer; /* 마우스 포인터를 손가락 모양으로 변경 */
+        }
+        button:hover {
+            background-color: #0056b3; /* 버튼에 마우스를 올렸을 때 더 진한 파란색 */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="image1-1.gif" alt="Image 1-1">
-        <button onclick="window.location.href='page2.html'">꼬미는 어떤 산책을 했을까요?</button>
+        <button id="delayedButton" onclick="window.location.href='page2.html'">꼬미는 어떤 산책을 했을까요?</button>
     </div>
+    
+    <script>
+        // 7초 후에 버튼을 나타나게 함
+        setTimeout(function() {
+            document.getElementById('delayedButton').style.display = 'inline-block';
+        }, 12000);
+    </script>
 </body>
 </html>
